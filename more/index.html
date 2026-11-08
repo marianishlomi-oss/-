@@ -1,0 +1,19 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>מורה בשדה</title><link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><meta name="theme-color" content="#b0702a">
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#f6efe4;font-family:system-ui,sans-serif;color:#2b2118;text-align:center}
+img{width:120px;height:120px;border-radius:28px}h1{font-size:26px;margin:16px 0}button,a.b{display:block;width:260px;margin:10px auto;padding:16px;border:0;border-radius:16px;background:#b0702a;color:#fff;font:700 19px system-ui;text-decoration:none}
+p{max-width:300px;font-size:15px;line-height:1.5}</style></head><body><main>
+<img src="icon-192.png" alt=""><h1>מורה בשדה</h1>
+<button id="inst" hidden>📲 הוסף למסך הבית</button>
+<p id="manual" hidden>אם הכפתור לא מופיע: שלוש הנקודות ⋮ למעלה ואז "הוספה למסך הבית".</p>
+<a class="b" href="https://claude.ai/artifact/1LpSHeM2up9vpzU19ujfyW">כניסה לאפליקציה</a></main>
+<script>
+const URL_="https://claude.ai/artifact/1LpSHeM2up9vpzU19ujfyW";
+if(matchMedia("(display-mode: standalone)").matches||navigator.standalone){location.replace(URL_);}
+if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js");
+let ev=null;const b=document.getElementById("inst"),m=document.getElementById("manual");
+addEventListener("beforeinstallprompt",e=>{e.preventDefault();ev=e;b.hidden=false;m.hidden=true;});
+setTimeout(()=>{if(!ev)m.hidden=false;},2500);
+b.onclick=async()=>{if(!ev)return;ev.prompt();const r=await ev.userChoice;if(r.outcome==="accepted"){b.textContent="✓ נוסף למסך הבית";b.disabled=true;}ev=null;};
+addEventListener("appinstalled",()=>{b.textContent="✓ נוסף למסך הבית";b.hidden=false;b.disabled=true;});
+</script></body></html>
